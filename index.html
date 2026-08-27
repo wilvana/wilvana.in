@@ -3,108 +3,2084 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WILVANA — Unbound Data Alignment</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Wilvana Ventures | AI, Data & Digital Platforms</title>
+
+  <meta
+    name="description"
+    content="Wilvana Ventures builds AI-powered software, data platforms, digital products and technology solutions across AI, fintech, financial education, EdTech and automation."
+  />
+
+  <meta name="theme-color" content="#07111f" />
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0b1728;
+      --card: rgba(255, 255, 255, 0.055);
+      --card-hover: rgba(255, 255, 255, 0.085);
+      --text: #f5f7fb;
+      --muted: #9ba8bb;
+      --line: rgba(255, 255, 255, 0.1);
+      --accent: #72e6c4;
+      --accent-2: #7aa7ff;
+      --white: #ffffff;
+      --max: 1180px;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.12;
+    }
+
+    .glow.one {
+      background: #4ce1b4;
+      top: -250px;
+      left: -150px;
+    }
+
+    .glow.two {
+      background: #557cff;
+      right: -200px;
+      top: 25%;
+    }
+
+    .glow.three {
+      background: #8d5cff;
+      bottom: -300px;
+      left: 30%;
+    }
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+    .brand-text {
+      font-size: 17px;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-links .nav-product {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .nav-cta {
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: var(--white);
+      color: #07111f !important;
+      font-weight: 700;
+    }
+
+    .mobile-menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 92vh;
+      padding-top: 150px;
+      padding-bottom: 100px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+      max-width: 850px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(
+        100deg,
+        var(--accent),
+        #a2eaff,
+        var(--accent-2)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 650px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 21px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      transition: 0.25s ease;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--bg);
+      border-color: var(--white);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       HERO VISUAL
+    ========================= */
+
+    /* =========================================
+   HERO VISUAL
+========================================= */
+
+.hero-visual {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   ORBIT RINGS
+========================================= */
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-outer {
+  width: 510px;
+  height: 510px;
+  animation: rotateClockwise 35s linear infinite;
+}
+
+.orbit-middle {
+  width: 370px;
+  height: 370px;
+  border-color: rgba(114, 230, 196, 0.12);
+  animation: rotateCounter 25s linear infinite;
+}
+
+.orbit-inner {
+  width: 250px;
+  height: 250px;
+  border-color: rgba(122, 167, 255, 0.12);
+  animation: rotateClockwise 18s linear infinite;
+}
+
+
+/* =========================================
+   CENTER WILVANA
+========================================= */
+
+.hero-core {
+  position: absolute;
+
+  width: 125px;
+  height: 125px;
+
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(114, 230, 196, 0.16),
+      rgba(7, 17, 31, 0.96) 68%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 0 50px rgba(114, 230, 196, 0.12),
+    0 30px 80px rgba(0, 0, 0, 0.45);
+
+  z-index: 10;
+
+  animation: corePulse 4s ease-in-out infinite;
+}
+
+.core-glow {
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  background: rgba(114, 230, 196, 0.1);
+
+  filter: blur(30px);
+
+  z-index: -1;
+}
+
+.core-logo img {
+  width: 78px;
+  height: 78px;
+
+  object-fit: contain;
+}
+
+.hero-core > span {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+
+/* =========================================
+   ORBIT NODES
+========================================= */
+
+.orbit-node {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 11px 15px;
+
+  border-radius: 15px;
+
+  background: rgba(7, 17, 31, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.3);
+
+  z-index: 20;
+
+  animation: float 5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   NODE ICON
+========================================= */
+
+.node-icon {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  font-size: 16px;
+}
+
+.node-content strong {
+  display: block;
+
+  font-size: 12px;
+
+  color: var(--text);
+}
+
+.node-content span {
+  display: block;
+
+  font-size: 9px;
+
+  color: var(--muted);
+
+  margin-top: 2px;
+}
+
+
+/* =========================================
+   FINANCE
+========================================= */
+
+.node-finance {
+  top: 72px;
+  right: 0;
+
+  border-color: rgba(114, 230, 196, 0.32);
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(114, 230, 196, 0.06);
+
+  animation-delay: -1s;
+}
+
+.node-finance .node-icon {
+  background: rgba(114, 230, 196, 0.12);
+  color: var(--accent);
+}
+
+
+/* =========================================
+   AI
+========================================= */
+
+.node-ai {
+  top: 255px;
+  right: -25px;
+
+  animation-delay: -2s;
+}
+
+
+/* =========================================
+   DATA
+========================================= */
+
+.node-data {
+  bottom: 75px;
+  left: 5px;
+
+  animation-delay: -3s;
+}
+
+
+/* =========================================
+   SOFTWARE
+========================================= */
+
+.node-software {
+  bottom: 305px;
+  left: -25px;
+
+  animation-delay: -4s;
+}
+
+/* =========================================
+   BUSINESS
+========================================= */
+
+.node-business {
+  bottom: 60px;
+  right: 5px;
+
+  animation-delay: -4s;
+}
+
+/* =========================================
+   CLOUD
+========================================= */
+
+.node-cloud {
+  top: 30px;
+  left: 120px;
+
+  animation-delay: -1.5s;
+}
+
+
+/* =========================================
+   ORBITING LIGHTS
+========================================= */
+
+.orbit-line {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  box-shadow:
+    0 0 18px rgba(114, 230, 196, 0.85);
+
+  z-index: 4;
+}
+
+.line-1 {
+  animation: orbitDot1 12s linear infinite;
+}
+
+.line-2 {
+  animation: orbitDot2 16s linear infinite;
+
+  background: var(--accent-2);
+}
+
+.line-3 {
+  animation: orbitDot3 20s linear infinite;
+}
+
+.line-4 {
+  animation: orbitDot4 14s linear infinite;
+
+  background: var(--accent-2);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes rotateClockwise {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+@keyframes rotateCounter {
+
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+
+}
+
+
+@keyframes corePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.035);
+  }
+
+}
+
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+
+}
+
+
+/* =========================================
+   MOVING LIGHT DOTS
+========================================= */
+
+@keyframes orbitDot1 {
+
+  from {
+    transform:
+      rotate(0deg)
+      translateX(255px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(255px)
+      rotate(-360deg);
+  }
+
+}
+
+
+@keyframes orbitDot2 {
+
+  from {
+    transform:
+      rotate(0deg)
+      translateX(185px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(-360deg)
+      translateX(185px)
+      rotate(360deg);
+  }
+
+}
+
+
+@keyframes orbitDot3 {
+
+  from {
+    transform:
+      rotate(0deg)
+      translateX(125px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(125px)
+      rotate(-360deg);
+  }
+
+}
+
+
+@keyframes orbitDot4 {
+
+  from {
+    transform:
+      rotate(0deg)
+      translateX(215px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(-360deg)
+      translateX(215px)
+      rotate(360deg);
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .hero-visual {
+    height: 470px;
+
+    transform: scale(0.82);
+
+    margin-top: -20px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero-visual {
+    height: 430px;
+
+    transform: scale(0.68);
+
+    margin-top: -45px;
+    margin-bottom: -50px;
+  }
+
+}
+
+    /* =========================
+       TRUST STRIP
+    ========================= */
+
+    .trust-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 26px 0;
+    }
+
+    .trust-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .trust-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .trust-items {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .trust-items span {
+      color: #d5dce7;
+      font-size: 13px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 115px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 15px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* =========================
+       CAPABILITIES
+    ========================= */
+
+    .capabilities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .capability {
+      padding: 30px;
+      min-height: 230px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      transition: 0.3s ease;
+    }
+
+    .capability:hover {
+      background: var(--card-hover);
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.17);
+    }
+
+    .icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.07);
+      margin-bottom: 24px;
+      font-size: 19px;
+    }
+
+    .capability h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .capability p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       minto FEATURE
+    ========================= */
+
+    .product-section {
+      position: relative;
+    }
+
+    .product-card {
+      position: relative;
+      padding: 60px;
+      border: 1px solid rgba(114,230,196,0.2);
+      border-radius: 32px;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(114,230,196,0.1),
+          transparent 35%
+        ),
+        rgba(255,255,255,0.035);
+      overflow: hidden;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .product-label {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .product-title {
+      font-size: clamp(42px, 6vw, 68px);
+      letter-spacing: -0.06em;
+      line-height: 0.98;
+      margin-bottom: 20px;
+    }
+
+    .product-copy {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 590px;
+      margin-bottom: 28px;
+    }
+
+    .product-features {
+      list-style: none;
+      display: grid;
+      gap: 11px;
+      margin-bottom: 30px;
+    }
+
+    .product-features li {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: #dce5f0;
+      font-size: 14px;
+    }
+
+    .check {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    /* Product visual */
+
+    .phone-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone {
+      width: 270px;
+      min-height: 490px;
+      border-radius: 35px;
+      padding: 12px;
+      background: #02070d;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow:
+        0 40px 100px rgba(0,0,0,0.45),
+        0 0 70px rgba(114,230,196,0.08);
+    }
+
+    .phone-screen {
+      min-height: 466px;
+      border-radius: 26px;
+      padding: 24px 18px;
+      background:
+        linear-gradient(
+          180deg,
+          #0d1e2d,
+          #07121f
+        );
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .phone-top strong {
+      font-size: 16px;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .balance {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .balance-number {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin: 4px 0 22px;
+    }
+
+    .progress {
+      height: 8px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 72%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+      margin-bottom: 28px;
+    }
+
+    .lesson {
+      padding: 15px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 10px;
+    }
+
+    .lesson small {
+      color: var(--accent);
+      font-size: 10px;
+    }
+
+    .lesson strong {
+      display: block;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    /* =========================
+       VISION
+    ========================= */
+
+    .vision {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .vision-statement {
+      text-align: center;
+		width: 100%;
+		font-size: clamp(28px, 4vw, 47px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .vision-statement span {
+      color: var(--accent);
+    }
+
+    .vision-copy {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 650px;
+    }
+
+    .vision-copy p + p {
+      margin-top: 18px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-box {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 50px;
+      background: var(--card);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+    }
+
+    .about-box h2 {
+      font-size: 40px;
+      letter-spacing: -0.05em;
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .object-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .object-item {
+      display: flex;
+      gap: 13px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: #dce5f0;
+      font-size: 14px;
+    }
+
+    .object-number {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .cta h2 {
+      font-size: clamp(40px, 6vw, 70px);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 22px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 55px 0 35px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 400px;
+      margin-top: 15px;
+    }
+
+    .footer-column h4 {
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .footer-column a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #66758a;
+      font-size: 11px;
+    }
+
+    .disclaimer {
+      max-width: 800px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        background: rgba(7,17,31,0.97);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 10px;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero-grid,
+      .product-grid,
+      .vision,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .hero-visual {
+        min-height: 400px;
+      }
+
+      .capabilities {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-card {
+        padding: 35px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .hero h1 {
+        font-size: 49px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        transform: scale(0.82);
+        margin-top: -25px;
+      }
+
+      .capabilities {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card {
+        padding: 28px 20px;
+      }
+
+      .phone {
+        width: 250px;
+      }
+
+      .about-box {
+        padding: 30px 22px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .trust-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-gray-900 font-sans min-h-screen flex flex-col justify-between">
 
-  <!-- Navigation Header -->
-  <header class="max-w-6xl w-full mx-auto p-6 flex justify-between items-center bg-transparent">
-    <a href="/" class="flex items-center">
-      <!-- Use your existing logo; the height is optimized for corporate branding -->
-      <img src="wilvanalog_whitebkgrd.png" alt="WILVANA Logo" class="h-16 sm:h-20 md:h-24 object-contain">
-    </a>
-    <a href="mailto:bakshi@wilvana.in" class="text-sm font-medium border border-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-200">
-      Get in Touch
-    </a>
-  </header>
+<body>
 
-  <!-- Main Corporate Content Container -->
-  <main class="flex-1 max-w-6xl mx-auto flex flex-col justify-center items-center text-center px-6 py-12">
-    
-    <!-- Tagline Anchor -->
-    <span class="text-xs font-semibold tracking-widest text-indigo-600 uppercase mb-3 bg-indigo-50 px-3 py-1 rounded-full">
-      Unstructured In. Business Ready Out.
-    </span>
-    
-    <!-- Core Value Proposition -->
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
-      Upstream AI Data Infrastructure for Digital Commerce.
-    </h1>
-    
-    <!-- Realistic, Grounded Objective Description -->
-    <p class="text-base md:text-lg text-gray-600 max-w-6xl mb-12 leading-relaxed">
-      Wilvana Ventures Private Limited builds the universal data adapter for digital supply chains. We completely eliminate onboarding friction for long-tail dealers and regional distributors by turning completely unstructured supplier files into clean, retail-compliant master data.
-    </p>
-	<h1 class="text-2xl md:text-2xl lg:text-2xl  font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
-      Upload Anything. Export Anywhere.
-    </h1>
-	<p class="text-base md:text-lg text-gray-600 max-w-6xl mb-2 leading-relaxed">
-      Most enterprise software requires rigid, structured inputs. Wilvana acts as the intelligent bridge—extracting, validating, and formatting your data instantly.
-    <ul>
-      <li class="mb-4"><strong>Any Source Input: </strong>Instantly ingest PDFs, scanned invoices, catalog images, WhatsApp business chats, voice notes, and spreadsheets.
-		</li>
-	<li class="mb-4"><strong>
-      Any Destination Schema:</strong> Automatically structure and map data directly for Amazon, Flipkart, Myntra, Shopify, ONDC, Tally, or your custom enterprise ERP.
-    </li>
-	</ul>
-	</p>
-    <!-- Structural Timeline / The Two-Phase Pipeline Modules -->
-    <div class="grid md:grid-cols-2 gap-6 text-left w-full max-w-6xl mb-12">
-      
-      <!-- Phase 1 Card -->
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <div class="text-xs font-bold text-indigo-600 mb-2 uppercase tracking-wider">Phase 01</div>
-        <h3 class="text-lg font-bold text-gray-900 mb-2">Intelligent Ingestion & Network Export</h3>
-        
-          <p class="text-sm text-gray-500 leading-relaxed">
-			Our zero-barrier AI workflows extract text, tables, and product attributes from raw trade documents.
-			<ul>
-      <li class="text-sm text-gray-500 leading-relaxed" ><strong>Learn My Format: </strong> Upload your existing business Excel template, and our engine automatically mirrors your column rules and validation mapping.</li>
-	  <li  class="text-sm text-gray-500 leading-relaxed"><strong>AI HSN Classification: </strong>Automatically identifies, maps, and corrects HSN tax codes to ensure strict GST compliance and error-free marketplace listing.</li>
-		</ul></p>
+  <!-- =========================
+       BACKGROUND
+  ========================= -->
 
-       
+  <div class="background">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
+  </div>
+
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#home" class="brand">
+        <img
+  src="wilvanalog_nobkgrd.png"
+  alt="Wilvana Ventures"
+  class="brand-logo"
+/>
+
+        <div class="brand-text">
+          WILVANA <span>VENTURES</span>
+        </div>
+      </a>
+
+      <button
+        class="mobile-menu"
+        aria-label="Open menu"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+
+        <li>
+          <a href="#technology">Technology</a>
+        </li>
+
+        <li>
+          <a href="#minto" class="nav-product">
+            minto ↗
+          </a>
+        </li>
+
+        <li>
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#contact" class="nav-cta">
+            Connect
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Technology • AI • Data • Digital Platforms
+          </div>
+
+          <h1>
+            Building
+            <span class="gradient">digital ventures </span>
+            for the next generation.
+          </h1>
+
+          <p class="hero-description">
+            We build AI-powered software, data solutions and digital platforms that help 
+			businesses digitise and create new possibilities in financial education and technology..
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#minto" class="btn btn-primary">
+              Explore minto →
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+              About Wilvana
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Abstract technology visual -->
+
+       <div class="hero-visual">
+
+  <!-- Orbit rings -->
+  <div class="orbit orbit-outer"></div>
+  <div class="orbit orbit-middle"></div>
+  <div class="orbit orbit-inner"></div>
+
+  <!-- Moving light points -->
+  <div class="orbit-line line-1"></div>
+  <div class="orbit-line line-2"></div>
+  <div class="orbit-line line-3"></div>
+  <div class="orbit-line line-4"></div>
+
+  <!-- Center -->
+  <div class="hero-core">
+
+    <div class="core-glow"></div>
+
+    <div class="core-logo">
+      <img
+        src="wilvanalog_nobkgrd.png"
+        alt="Wilvana Ventures"
+      />
+    </div>
+
+    
+
+  </div>
+
+
+  <!-- Finance / Minto -->
+  <div class="orbit-node node-finance">
+
+    <div class="node-icon">◎</div>
+
+    <div class="node-content">
+      <strong>Financial Technology</strong>
+      <span>Education • Analytics</span>
+    </div>
+
+  </div>
+
+
+  <!-- AI -->
+  <div class="orbit-node node-ai">
+
+    <div class="node-icon">✦</div>
+
+    <div class="node-content">
+      <strong>AI</strong>
+      <span>Intelligent Systems</span>
+    </div>
+
+  </div>
+
+
+  <!-- Data -->
+  <div class="orbit-node node-data">
+
+    <div class="node-icon">⌁</div>
+
+    <div class="node-content">
+      <strong>Data</strong>
+      <span>Processing & Analytics</span>
+    </div>
+
+  </div>
+
+
+  <!-- Software -->
+  <div class="orbit-node node-software">
+
+    <div class="node-icon">◈</div>
+
+    <div class="node-content">
+      <strong>Software</strong>
+      <span>Web • Mobile • SaaS</span>
+    </div>
+
+  </div>
+
+	<!-- Business Digitisation -->
+  <div class="orbit-node node-business">
+
+    <div class="node-icon">↗</div>
+
+    <div class="node-content">
+      <strong>Business Digitisation</strong>
+      <span>Data • Automation • Commerce</span>
+    </div>
+
+  </div>
+
+  <!-- Cloud -->
+  <div class="orbit-node node-cloud">
+
+    <div class="node-icon">☁</div>
+
+    <div class="node-content">
+      <strong>Cloud</strong>
+      <span>Platforms & APIs</span>
+    </div>
+
+  </div>
+
+</div>
+
       </div>
 
-      <!-- Phase 2 Card -->
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <div class="text-xs font-bold text-indigo-600 mb-2 uppercase tracking-wider">Phase 02</div>
-        <h3 class="text-lg font-bold text-gray-900 mb-2">Hyperlocal Discovery & Dark Inventory Monetization</h3>
-        
-          <p class="text-sm text-gray-500 leading-relaxed">
-			Unlock hidden warehouse inventory and connect local market buyers directly to live, localized supplier data feeds.
-			<li class="text-sm text-gray-500 leading-relaxed" ><strong>Conversational Sourcing: </strong>Turn voice and image searches on WhatsApp directly into active buyer inquiries.</li>
-			<li class="text-sm text-gray-500 leading-relaxed" ><strong>Hyperlocal Promotions: </strong>Run automated, low-cost multi-channel marketing campaigns on Pinterest and Instagram to clear stale stock fast.</li>
-		</ul></p>
+    </section>
 
-       
+
+    <!-- =========================
+         TRUST STRIP
+    ========================= -->
+
+    <div class="trust-strip">
+
+      <div class="container trust-inner">
+
+        <div class="trust-label">
+          Areas we're building in
+        </div>
+
+        <div class="trust-items">
+          <span>AI & Automation</span>
+          <span>Business Digitisation</span>
+          <span>Data Processing & Intelligence</span>
+          <span>Financial Technology & Education</span>
+          <span>SaaS</span>
+          <span>Digital Platforms</span>
+        </div>
+
       </div>
 
     </div>
 
-    <!-- Governance Frameworks & Compliance Signifiers -->
-    <div class="flex flex-wrap gap-6 justify-center text-xs font-medium text-gray-400 tracking-wider uppercase mb-6">
-      <span>Building for ONDC Compatibility</span>
-      <span>•</span>
-      <span>MSME Ecosystem Focus</span>
-      <span>•</span>
-      <span>AI-Powered Product Enrichment</span>
-    </div>
+
+    <!-- =========================
+         TECHNOLOGY
+    ========================= -->
+
+    <section id="technology">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            What we build
+          </div>
+
+          <h2>
+            Technology designed around real problems.
+          </h2>
+
+          <p>
+            We create AI-powered software, data solutions and digital platforms that help 
+			businesses digitise, while creating new products in financial education and technology.
+          </p>
+
+        </div>
+
+
+        <div class="capabilities">
+
+          <article class="capability">
+
+            <div class="icon">✦</div>
+
+            <h3>AI & Automation</h3>
+
+            <p>
+              AI-powered applications, intelligent automation, 
+			  document processing and workflow solutions.
+			  
+            </p>
+
+          </article>
+
+
+          <article class="capability">
+
+            <div class="icon">⌁</div>
+
+            <h3>Data Processing & Intelligence</h3>
+
+            <p>
+              Data extraction, processing, transformation, analytics,
+              reporting and intelligent information systems.
+            </p>
+
+          </article>
+
+
+          <article class="capability">
+
+            <div class="icon">◈</div>
+
+            <h3>Digital Platforms</h3>
+
+            <p>
+              Web, mobile, SaaS, cloud platforms and scalable digital products.
+            </p>
+
+          </article>
+
+
+          <article class="capability">
+
+            <div class="icon">↗</div>
+
+            <h3>Business Digitisation</h3>
+
+            <p>
+              Solutions that help businesses transform information and operations for the digital economy.
+            </p>
+
+          </article>
+
+
+          <article class="capability">
+
+            <div class="icon">◎</div>
+
+            <h3>Financial Technology & Education</h3>
+
+            <p>
+              Technology for personal finance, financial education, analytics and learning.
+            </p>
+
+          </article>
+
+
+          <article class="capability">
+
+            <div class="icon">⚙</div>
+
+            <h3>Integrations & APIs</h3>
+
+            <p>
+              APIs, integrations and connected software solutions that make digital workflows work together.
+			  
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         minto
+    ========================= -->
+
+    <section id="minto" class="product-section">
+
+      <div class="container">
+
+        <div class="product-card">
+
+          <div class="product-grid">
+
+            <div>
+
+              <div class="product-label">
+                A Wilvana Ventures platform
+              </div>
+
+              <h2 class="product-title">
+                minto
+              </h2>
+				
+				<h3 >Financial education for the next generation.
+				</h3>
+				
+              <p class="product-copy">
+                Minto is an interactive financial education platform designed 
+				to help young investors build a stronger understanding of money, 
+				saving, investing and financial decision-making.
+              </p>
+
+
+              <ul class="product-features">
+
+                <li>
+                  <span class="check">✓</span>
+                  Learn financial fundamentals
+                </li>
+
+                <li>
+                  <span class="check">✓</span>
+                  Interactive lessons and challenges
+                </li>
+
+                <li>
+                  <span class="check">✓</span>
+                  Practice investing through simulations
+                </li>
+
+                <li>
+                  <span class="check">✓</span>
+                  Age-appropriate learning experiences
+                </li>
+
+              </ul>
+
+
+              <a href="minto.html" class="btn btn-primary">
+                Enter minto →
+              </a>
+
+            </div>
+
+
+            <!-- Product mockup -->
+
+            <div class="phone-wrap">
+
+              <div class="phone">
+
+                <div class="phone-screen">
+
+                  <div class="phone-top">
+
+                    <strong>minto</strong>
+
+                    <div class="avatar"></div>
+
+                  </div>
+
+
+                  <div class="balance">
+                    Learning progress
+                  </div>
+
+                  <div class="balance-number">
+                    72%
+                  </div>
+
+
+                  <div class="progress">
+                    <span></span>
+                  </div>
+
+                  <div class="progress-label">
+                    <span>Financial Foundations</span>
+                    <span>7/10</span>
+                  </div>
+
+
+                  <div class="lesson">
+                    <small>LESSON 08</small>
+                    <strong>What is compounding?</strong>
+                  </div>
+
+                  <div class="lesson">
+                    <small>CHALLENGE</small>
+                    <strong>Build your first portfolio</strong>
+                  </div>
+
+                  <div class="lesson">
+                    <small>SIMULATION</small>
+                    <strong>Invest ₹10,000 virtually</strong>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         VISION
+    ========================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div >
+
+          <div class="vision-statement">
+
+            Technology should make
+            <span>complex things simpler.</span>
+
+          </div>
+
+
+          
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT COMPANY
+    ========================= -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="about-box">
+
+          <div class="about-grid">
+
+            <div>
+
+              <div class="eyebrow">
+                Wilvana Ventures
+              </div>
+
+              <h2>
+                A technology venture company.
+              </h2>
+			</div>
+			
+			
+              <div class="object-list">
+
+              <div class="object-item"><p>
+                Wilvana Ventures is focused on solving problems, not simply building technology.
+              </p>
+			  </div>
+			  
+			  
+              <div class="object-item"><p>
+			  We believe AI can make it faster to build, but thinking still comes first. 
+			  Understanding the problem, breaking it into the right steps, designing the system, 
+			  and knowing which tools to use are what turn an idea into a product that actually works.
+			  </p>
+
+				</div>
+
+
+            
+
+              <div class="object-item">
+                <p>We build and explore AI-powered software, data solutions and digital platforms across 
+				  business digitisation, financial technology, education and other real-world applications.</p>
+
+                
+              </div>
+
+
+              <div class="object-item">
+                <p>Our approach is simple: understand the problem, design the solution, 
+				  use technology intelligently, and build for people.</p>
+
+                
+              </div>
+
+
+              <div class="object-item">
+                <span class="object-number">Think first. Build better.</span>
+
+                
+              </div>
+
+                       
+
+
+              
+				</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section id="contact" class="cta">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Build with us
+        </div>
+
+        <h2>
+          Ideas become<br />
+          <span class="gradient">digital ventures.</span>
+        </h2>
+
+        <p>
+          We're interested in connecting with businesses of all sizes, 
+		  entrepreneurs, builders, educators, technology professionals, 
+		  institutions looking to turn ideas and challenges into better digital solutions.
+		  		  
+        </p>
+
+        <a
+          href="mailto:bakshi@wilvana.in"
+          class="btn btn-primary"
+        >
+          write to us →
+        </a>
+
+      </div>
+
+    </section>
 
   </main>
 
-  <!-- Corporate Footer with Board Designations -->
-  <footer class="w-full max-w-6xl mx-auto p-6 border-t border-gray-200/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-    <div class="flex gap-4 text-center sm:text-left">
-		<span>AI-Powered Product Data Infrastructure</span>
-		<span class="hidden sm:inline text-gray-300">|</span>
-		<span>Built for Digital Commerce</span>
-	</div>
-    <div class="text-center sm:text-right">
-      © 2026 Wilvana Ventures Private Limited | wilvana.in
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <a href="#home" class="brand">
+
+            
+
+            <div class="brand-text">
+              WILVANA <span>VENTURES</span>
+            </div>
+
+          </a>
+
+          <p>
+            Building AI-powered software, data solutions and digital platforms for real-world problems.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Explore</h4>
+
+          <a href="#technology">Technology</a>
+          <a href="#minto">minto</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Company</h4>
+
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="mailto:bakshi@wilvana.in">
+            Email us
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <div>
+          © 2026 Wilvana Ventures Pvt. Ltd. All rights reserved.
+        </div>
+
+        <div class="disclaimer">
+          Wilvana Ventures provides technology and software solutions. 
+		  Minto is a financial education technology platform and does not 
+		  itself provide investment advice, execute financial transactions, 
+		  operate wallets, or provide regulated financial services.
+        </div>
+
+      </div>
+
     </div>
+
   </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    function toggleMenu() {
+      const menu = document.getElementById("navLinks");
+      menu.classList.toggle("active");
+    }
+
+
+    // Close mobile menu after clicking a link
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        document
+          .getElementById("navLinks")
+          .classList
+          .remove("active");
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
