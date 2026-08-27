@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>minto — Learn Money. Build Confidence.</title>
+
+  <meta
+    name="description"
+    content="minto is an interactive financial education platform helping the next generation learn about money, saving, investing and financial decision-making."
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --mint: #8df5c7;
+      --mint-dark: #39b985;
+      --purple: #9c8cff;
+      --yellow: #ffd86b;
+      --pink: #ff9fcf;
+
+      --ink: #18201d;
+      --muted: #66736e;
+
+      --cream: #fffdf7;
+      --white: #ffffff;
+
+      --border: #e9eee9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--cream);
+
+      color: var(--ink);
+
+      line-height: 1.5;
+
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =========================
+       NAV
+    ========================= */
+
+    nav {
+      position: relative;
+
+      max-width: 1180px;
+
+      margin: auto;
+
+      padding: 22px 28px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      font-size: 21px;
+
+      font-weight: 850;
+
+      letter-spacing: -0.04em;
+    }
+
+    .brand-logo {
+      width: 105px;
+
+      height: 42px;
+
+      object-fit: contain;
+
+      display: block;
+    }
+
+    .minto-word {
+      font-size: 25px;
+
+      font-weight: 900;
+
+      letter-spacing: -0.06em;
+    }
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 28px;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      color: var(--muted);
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+
+      border-radius: 999px;
+
+      background: var(--ink);
+
+      color: white;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+
+      max-width: 1180px;
+
+      margin: auto;
+
+      min-height: 700px;
+
+      padding: 70px 28px 100px;
+
+      display: grid;
+
+      grid-template-columns:
+        0.95fr
+        1.05fr;
+
+      align-items: center;
+
+      gap: 40px;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 550px;
+
+      height: 550px;
+
+      border-radius: 50%;
+
+      background: #e4fff2;
+
+      filter: blur(10px);
+
+      right: -100px;
+
+      top: 40px;
+
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: #e8fff4;
+
+      color: #268963;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "✦";
+    }
+
+    h1 {
+      font-size: clamp(
+        58px,
+        7vw,
+        92px
+      );
+
+      line-height: 0.9;
+
+      letter-spacing: -0.075em;
+
+      max-width: 650px;
+
+      margin-bottom: 27px;
+    }
+
+    h1 .green {
+      color: var(--mint-dark);
+    }
+
+    h1 .purple {
+      color: var(--purple);
+    }
+
+    .hero-text {
+      max-width: 540px;
+
+      font-size: 18px;
+
+      color: var(--muted);
+
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+
+      gap: 12px;
+
+      align-items: center;
+    }
+
+    .primary {
+      padding: 15px 22px;
+
+      border-radius: 14px;
+
+      background: var(--ink);
+
+      color: white;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      box-shadow:
+        0 8px 0 #0c110f;
+
+      transition: 0.2s;
+    }
+
+    .primary:hover {
+      transform: translateY(3px);
+
+      box-shadow:
+        0 5px 0 #0c110f;
+    }
+
+    .secondary {
+      padding: 15px 20px;
+
+      border-radius: 14px;
+
+      border: 1px solid #dfe7e2;
+
+      background: white;
+
+      font-size: 14px;
+
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       HERO GAME VISUAL
+    ========================= */
+
+    .hero-game {
+      position: relative;
+
+      height: 520px;
+    }
+
+    .game-circle {
+      position: absolute;
+
+      width: 430px;
+
+      height: 430px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d9fff0,
+          #eeeaff
+        );
+
+      left: 50%;
+
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
+      animation:
+        breathe 5s ease-in-out infinite;
+    }
+
+
+    /* =========================
+       PHONE
+    ========================= */
+
+    .phone {
+      position: absolute;
+
+      width: 270px;
+
+      height: 500px;
+
+      left: 50%;
+
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%)
+        rotate(3deg);
+
+      background: #171d1a;
+
+      border-radius: 38px;
+
+      padding: 9px;
+
+      box-shadow:
+        0 40px 80px
+        rgba(31, 50, 42, 0.22);
+
+      z-index: 5;
+    }
+
+    .screen {
+      width: 100%;
+
+      height: 100%;
+
+      background: #f8fbf8;
+
+      border-radius: 31px;
+
+      overflow: hidden;
+
+      padding: 20px;
+    }
+
+    .app-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 23px;
+    }
+
+    .app-logo {
+      font-size: 20px;
+
+      font-weight: 900;
+
+      letter-spacing: -0.06em;
+    }
+
+    .avatar {
+      width: 34px;
+
+      height: 34px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--yellow),
+          var(--pink)
+        );
+
+      display: grid;
+
+      place-items: center;
+
+      font-size: 15px;
+    }
+
+    .hello {
+      font-size: 12px;
+
+      color: var(--muted);
+
+      margin-bottom: 4px;
+    }
+
+    .learn-title {
+      font-size: 21px;
+
+      font-weight: 900;
+
+      letter-spacing: -0.04em;
+
+      margin-bottom: 17px;
+    }
+
+
+    /* Progress */
+
+    .progress-card {
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 16px;
+
+      margin-bottom: 12px;
+    }
+
+    .progress-row {
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 9px;
+
+      border-radius: 20px;
+
+      background: #e6eee9;
+
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 72%;
+
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--mint-dark),
+          var(--mint)
+        );
+    }
+
+
+    /* Lesson */
+
+    .lesson-card {
+      padding: 17px;
+
+      border-radius: 20px;
+
+      margin-bottom: 11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #f3fff9
+        );
+
+      border: 1px solid var(--border);
+    }
+
+    .lesson-tag {
+      font-size: 9px;
+
+      font-weight: 900;
+
+      color: var(--mint-dark);
+
+      letter-spacing: 0.08em;
+
+      margin-bottom: 6px;
+    }
+
+    .lesson-card strong {
+      display: block;
+
+      font-size: 14px;
+
+      margin-bottom: 4px;
+    }
+
+    .lesson-card span {
+      font-size: 10px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       FLOATING GAME CARDS
+    ========================= */
+
+    .floating {
+      position: absolute;
+
+      z-index: 10;
+
+      background: white;
+
+      border-radius: 18px;
+
+      padding: 14px 17px;
+
+      border: 1px solid var(--border);
+
+      box-shadow:
+        0 20px 45px
+        rgba(37, 57, 48, 0.13);
+
+      animation:
+        float 4.5s ease-in-out infinite;
+    }
+
+    .floating strong {
+      display: block;
+
+      font-size: 13px;
+    }
+
+    .floating span {
+      display: block;
+
+      font-size: 10px;
+
+      color: var(--muted);
+
+      margin-top: 2px;
+    }
+
+    .coin {
+      top: 50px;
+
+      right: 15px;
+
+      background: #fff7d8;
+
+      transform: rotate(5deg);
+    }
+
+    .badge {
+      bottom: 55px;
+
+      left: 10px;
+
+      background: #eeeaff;
+
+      transform: rotate(-5deg);
+
+      animation-delay: -2s;
+    }
+
+    .challenge {
+      bottom: 20px;
+
+      right: 10px;
+
+      background: #ffe8f3;
+
+      transform: rotate(4deg);
+
+      animation-delay: -1s;
+    }
+
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    .section {
+      padding: 110px 28px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+
+      margin: auto;
+    }
+
+    .section-title {
+      max-width: 650px;
+
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(
+        40px,
+        5vw,
+        62px
+      );
+
+      line-height: 0.95;
+
+      letter-spacing: -0.065em;
+
+      margin-bottom: 17px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+
+      font-size: 17px;
+    }
+
+
+    /* =========================
+       LEARNING CARDS
+    ========================= */
+
+    .learning-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .learning-card {
+      min-height: 270px;
+
+      padding: 28px;
+
+      border-radius: 28px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .learning-card:nth-child(1) {
+      background: #dffbef;
+    }
+
+    .learning-card:nth-child(2) {
+      background: #eeeaff;
+    }
+
+    .learning-card:nth-child(3) {
+      background: #fff0c9;
+    }
+
+    .card-number {
+      font-size: 12px;
+
+      font-weight: 900;
+
+      opacity: 0.55;
+    }
+
+    .card-icon {
+      font-size: 42px;
+
+      margin: 30px 0 20px;
+    }
+
+    .learning-card h3 {
+      font-size: 25px;
+
+      letter-spacing: -0.04em;
+
+      margin-bottom: 8px;
+    }
+
+    .learning-card p {
+      font-size: 14px;
+
+      color: #5d6964;
+
+      max-width: 280px;
+    }
+
+
+    /* =========================
+       SIMULATION SECTION
+    ========================= */
+
+    .simulation {
+      background: #171d1a;
+
+      color: white;
+
+      border-radius: 40px;
+
+      max-width: 1100px;
+
+      margin: 80px auto;
+
+      padding: 70px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .simulation::after {
+      content: "";
+
+      position: absolute;
+
+      width: 400px;
+
+      height: 400px;
+
+      border-radius: 50%;
+
+      background: #3cb989;
+
+      opacity: 0.12;
+
+      filter: blur(20px);
+
+      right: -150px;
+
+      top: -150px;
+    }
+
+    .simulation h2 {
+      font-size: 52px;
+
+      line-height: 0.95;
+
+      letter-spacing: -0.06em;
+
+      max-width: 550px;
+
+      margin-bottom: 18px;
+    }
+
+    .simulation p {
+      color: #aebbb5;
+
+      max-width: 550px;
+
+      margin-bottom: 35px;
+    }
+
+    .portfolio {
+      position: relative;
+
+      z-index: 3;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
+    }
+
+    .portfolio-pill {
+      padding: 13px 17px;
+
+      background: rgba(255,255,255,0.08);
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      border-radius: 14px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+	
+	
+	/* =========================
+       NOTIFY
+    ========================= */
+	
+	.notify {
+  padding: 100px 28px;
+  text-align: center;
+}
+
+.notify-content {
+  max-width: 650px;
+  margin: auto;
+  padding: 55px 35px;
+
+  background: #e4fff2;
+
+  border-radius: 35px;
+}
+
+.notify-badge {
+  display: inline-block;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: white;
+
+  color: #268963;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  margin-bottom: 20px;
+}
+
+.notify h2 {
+  font-size: clamp(38px, 5vw, 58px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+
+  margin-bottom: 17px;
+}
+
+.notify p {
+  color: #66736e;
+
+  max-width: 520px;
+
+  margin: 0 auto 28px;
+}
+
+.notify form {
+  display: flex;
+
+  max-width: 500px;
+
+  margin: auto;
+
+  gap: 8px;
+}
+
+.notify input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 15px 17px;
+
+  border: 1px solid #d5e5dd;
+
+  border-radius: 13px;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.notify button {
+  padding: 15px 20px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background: #18201d;
+
+  color: white;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.notify small {
+  display: block;
+
+  margin-top: 14px;
+
+  color: #7a8782;
+
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+
+  .notify form {
+    flex-direction: column;
+  }
+
+  .notify button {
+    width: 100%;
+  }
+
+}
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 45px 28px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .footer-brand {
+      font-size: 22px;
+
+      font-weight: 900;
+
+      letter-spacing: -0.05em;
+    }
+
+    .footer-copy {
+      max-width: 520px;
+
+      font-size: 12px;
+
+      color: #78837e;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(4deg);
+      }
+
+      50% {
+        transform:
+          translateY(-12px)
+          rotate(4deg);
+      }
+
+    }
+
+    @keyframes breathe {
+
+      0%,
+      100% {
+        transform:
+          translate(-50%, -50%)
+          scale(1);
+      }
+
+      50% {
+        transform:
+          translate(-50%, -50%)
+          scale(1.04);
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 45px;
+
+        text-align: center;
+      }
+
+      .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-game {
+        transform: scale(0.82);
+
+        margin-top: -40px;
+
+        margin-bottom: -60px;
+      }
+
+      .learning-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .simulation {
+        margin: 50px 20px;
+
+        padding: 45px 28px;
+
+        border-radius: 30px;
+      }
+
+      .simulation h2 {
+        font-size: 40px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+    }
+
+
+    @media (max-width: 520px) {
+
+      h1 {
+        font-size: 58px;
+      }
+
+      .hero-game {
+        transform: scale(0.65);
+
+        margin-left: -40px;
+
+        margin-right: -40px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+
+    <a href="index.html" class="brand">
+
+      <img
+        src="wilvanalog_whitebkgrd.png"
+        class="brand-logo"
+        alt="Wilvana Ventures"
+      >
+
+      <span class="minto-word">
+        minto
+      </span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+      <a href="#learn">
+        Learn
+      </a>
+
+      <a href="#practice">
+        Practice
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a
+        href="index.html"
+        class="nav-button"
+      >
+        Wilvana
+      </a>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+
+    <div class="hero-copy-area">
+
+      <div class="eyebrow">
+        Financial education, reimagined
+      </div>
+
+
+      <h1>
+
+        Learn money.<br>
+
+        <span class="green">
+          Make it
+        </span>
+
+        <span class="purple">
+          yours.
+        </span>
+
+      </h1>
+
+
+      <p class="hero-text">
+
+        minto makes learning about money,
+        saving and investing interactive,
+        practical and actually fun.
+
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a href="#notify" class="primary">
+			Explore the minto app →
+		</a>
+		
+
+        <a
+          href="#practice"
+          class="secondary"
+        >
+          See how it works
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         PRODUCT VISUAL
+    ========================= -->
+
+    <div class="hero-game">
+
+      <div class="game-circle"></div>
+
+
+      <div class="phone">
+
+        <div class="screen">
+
+          <div class="app-top">
+
+            <div class="app-logo">
+              minto
+            </div>
+
+            <div class="avatar">
+              ☺
+            </div>
+
+          </div>
+
+
+          <div class="hello">
+            Hey! Ready to learn?
+          </div>
+
+          <div class="learn-title">
+            Your money journey
+          </div>
+
+
+          <div class="progress-card">
+
+            <div class="progress-row">
+
+              <span>
+                Financial Foundations
+              </span>
+
+              <span>
+                72%
+              </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+              <div class="progress-fill"></div>
+
+            </div>
+
+          </div>
+
+
+          <div class="lesson-card">
+
+            <div class="lesson-tag">
+              LESSON 08
+            </div>
+
+            <strong>
+              What is compounding?
+            </strong>
+
+            <span>
+              Discover how money can grow over time.
+            </span>
+
+          </div>
+
+
+          <div class="lesson-card">
+
+            <div class="lesson-tag">
+              CHALLENGE
+            </div>
+
+            <strong>
+              Build your first portfolio
+            </strong>
+
+            <span>
+              Make your choices. See what happens.
+            </span>
+
+          </div>
+
+
+          <div class="lesson-card">
+
+            <div class="lesson-tag">
+              SIMULATION
+            </div>
+
+            <strong>
+              Invest ₹10,000 virtually
+            </strong>
+
+            <span>
+              Practice without risking real money.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Floating cards -->
+
+      <div class="floating coin">
+
+        <strong>
+          🪙 Money mission
+        </strong>
+
+        <span>
+          Save ₹500 this month
+        </span>
+
+      </div>
+
+
+      <div class="floating badge">
+
+        <strong>
+          🏆 New badge unlocked
+        </strong>
+
+        <span>
+          Compounder
+        </span>
+
+      </div>
+
+
+      <div class="floating challenge">
+
+        <strong>
+          🎯 Daily challenge
+        </strong>
+
+        <span>
+          Needs vs wants?
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       LEARN
+  ========================= -->
+
+  <section
+    class="section"
+    id="learn"
+  >
+
+    <div class="section-inner">
+
+      <div class="section-title">
+
+        <h2>
+          Money skills
+          you can actually use.
+        </h2>
+
+        <p>
+          No complicated jargon. No boring lectures.
+          Just practical concepts, interactive experiences
+          and a safe place to learn.
+        </p>
+
+      </div>
+
+
+      <div class="learning-grid">
+
+
+        <div class="learning-card">
+
+          <div class="card-number">
+            01
+          </div>
+
+          <div class="card-icon">
+            💡
+          </div>
+
+          <h3>
+            Learn
+          </h3>
+
+          <p>
+            Understand money, saving, investing,
+            risk, compounding and the basics of
+            financial decision-making.
+          </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+          <div class="card-number">
+            02
+          </div>
+
+          <div class="card-icon">
+            🎮
+          </div>
+
+          <h3>
+            Practice
+          </h3>
+
+          <p>
+            Try challenges and simulations that let
+            you explore financial decisions without
+            using real money.
+          </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+          <div class="card-number">
+            03
+          </div>
+
+          <div class="card-icon">
+            🚀
+          </div>
+
+          <h3>
+            Build
+          </h3>
+
+          <p>
+            Develop financial confidence and better
+            decision-making habits one step at a time.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       SIMULATION
+  ========================= -->
+
+  <section
+    class="simulation"
+    id="practice"
+  >
+
+    <h2>
+      Practice before
+      real life.
+    </h2>
+
+    <p>
+      Explore investing through simulations.
+      Learn what different choices could mean
+      without putting real money at risk.
+    </p>
+
+
+    <div class="portfolio">
+
+      <div class="portfolio-pill">
+        ₹10,000 Virtual Money
+      </div>
+
+      <div class="portfolio-pill">
+        📈 Build a portfolio
+      </div>
+
+      <div class="portfolio-pill">
+        🎯 Learn about risk
+      </div>
+
+      <div class="portfolio-pill">
+        🏆 Track your progress
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       ABOUT / SAFETY
+  ========================= -->
+
+  <section
+    class="section"
+    id="about"
+  >
+
+    <div class="section-inner">
+
+      <div class="section-title">
+
+        <h2>
+          Learn first.
+          Decide later.
+        </h2>
+
+        <p>
+          minto is designed as a financial education
+          technology platform. It is built to help young
+          learners understand financial concepts and
+          practice decision-making in a safe environment.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+<!-- =========================
+       NOTIFY
+  ========================= -->
+<section class="notify" id="notify">
+
+  <div class="notify-content">
+
+    <div class="notify-badge">
+      🚧 minto is in the works
+    </div>
+
+    <h2>
+      Be among the first to experience minto.
+    </h2>
+
+    <p>
+      We're building a new way to learn about money,
+      saving and investing. Join the list and we'll let
+      you know when minto is ready.
+    </p>
+
+    <form
+  action="https://"
+  method="POST"
+  id="notifyForm"
+>
+
+   
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Enter your email"
+    required
+  >
+
+  <button type="submit">
+    Notify me →
+  </button>
+
+</form>
+
+<div
+  id="thankYou"
+  style="display:none;"
+>
+  🎉 You're on the list! We'll let you know when minto is ready.
+</div>
+
+<small>
+  No spam. Just an update when minto is ready.
+</small>
+
+    
+  </div>
+
+</section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        minto
+      </div>
+
+      <div class="footer-copy">
+
+        minto is a financial education technology platform
+        by Wilvana Ventures Pvt. Ltd. It does not provide
+        investment advice, execute financial transactions,
+        operate wallets or provide regulated financial services.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
