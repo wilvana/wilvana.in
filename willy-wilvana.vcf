@@ -1,9 +1,9 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Wilfred
-N:Xavier;;;;
+FN:
+N:Wilfred;;;;
 ORG:Wilvana Ventures Pvt. Ltd.
-TITLE:Director - Product
+TITLE:Director - Tech
 TEL;TYPE=CELL:+919820349981
 EMAIL;TYPE=WORK:willy@wilvana.in
 URL:https://wilvana.in
